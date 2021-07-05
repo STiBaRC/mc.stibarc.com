@@ -1,0 +1,216 @@
+@font-face {
+	font-family: "Minecraft";
+	font-style: normal;
+	font-weight: 400;
+	src: url("https://apis.buncode.com/fonts/minecraft_font.eot") format("eot"),
+		url("https://apis.buncode.com/fonts/minecraft_font.woff") format("woff"),
+		url("https://apis.buncode.com/fonts/minecraft_font.ttf") format("truetype"),
+		url("https://apis.buncode.com/fonts/minecraft_font.svg#Minecraft")
+			format("svg");
+}
+
+body {
+	background: #18100a url(../images/dirt.png) repeat;
+	background-size: 64px;
+	image-rendering: pixelated;
+	color: #fcfcfc;
+	font-family: Minecraft, sans-serif;
+	margin: 0;
+	font-size: 16px;
+}
+
+::-webkit-scrollbar {
+	/* width */
+	width: 16px;
+	height: 16px;
+}
+::-webkit-scrollbar-track {
+	/* Track */
+	background: #000;
+}
+::-webkit-scrollbar-thumb {
+	/* Handle */
+	background: #c0c0c0;
+	border-bottom: 2px inset #808080;
+	border-right: 3px inset #808080;
+}
+::-webkit-scrollbar-thumb:hover {
+	/* Handle on hover */
+	background: #c0c0c0;
+}
+
+/* helpers */
+
+.flex-grow {
+	display: flex;
+	flex-grow: 1;
+}
+
+/* text helpers */
+
+.text-sh {
+	text-shadow: 2px 2px #3e3e3e;
+}
+
+/* buttons */
+
+.button {
+	outline: 2px solid black;
+	display: inline-block;
+	background: #6d6d6d url(../images/button_center.png) repeat;
+	padding: 6px 28px 6px 28px;
+	text-align: center;
+	color: white;
+	text-shadow: 2px 2px #3e3e3e;
+	border-bottom: 4px solid #565656;
+	border-right: 2px solid #565656;
+	border-left: 2px solid #aaa;
+	border-top: 2px solid #aaa;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: Minecraft, sans-serif;
+	font-size: inherit;
+	font-weight: 400;
+	-webkit-user-select: none;
+	cursor: default;
+	outline-offset: 0;
+}
+
+.button > span {
+	text-decoration: none;
+	cursor: default;
+}
+
+.button:hover {
+	outline: 2px solid #fff;
+}
+
+.button.small {
+	padding: 5px 28px 5px 28px;
+}
+
+.button.x-small {
+	padding: 5px 18px 5px 18px;
+	font-size: 95%;
+}
+
+.button.block {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+/* main */
+
+.main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+.status {
+	display: flex;
+	margin-bottom: 1rem;
+}
+
+.server-icon {
+	height: 64px;
+	width: 64px;
+}
+
+.status-content {
+	margin-left: 8px;
+	max-width: 100%;
+	width: 400px;
+}
+
+.status-content .top {
+	display: flex;
+	align-items: center;
+	margin-bottom: 2px;
+}
+
+.status-content .player-count {
+	color: #555555;
+}
+
+.status-content .player-count .online,
+.status-content .player-count .max {
+	color: #aaaaaa;
+}
+
+.status-content .motd {
+	color: #808080;
+	white-space: normal;
+	text-overflow: ellipsis;
+}
+
+/* online players */
+
+.online-players {
+	margin-top: 0.35rem;
+	color: #7e7e7e;
+}
+
+.ping {
+	background: url(../images/levels.png) 10px -2px;
+	height: 8px;
+	width: 10px;
+	-ms-transform: scale(2, 2);
+	-webkit-transform: scale(2, 2);
+	transform: scale(2, 2);
+	image-rendering: pixelated;
+	margin: 1px 7px -1px 10px;
+}
+
+.tooltip {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	color: #fff;
+	text-shadow: 0.125em 0.125em 0 #3f3f3f;
+	background-color: #100010;
+	background-color: rgba(16, 0, 16, 0.94);
+	padding: 5px 6px 7px 6px;
+	margin-right: 8px;
+	margin-top: 8px;
+}
+
+.tooltip::before {
+	content: "";
+	position: absolute;
+	top: 0.125em;
+	right: -0.125em;
+	bottom: 0.125em;
+	left: -0.125em;
+	border: 0.125em solid #100010;
+	border-style: none solid;
+	border-color: rgba(16, 0, 16, 0.94);
+}
+
+.tooltip::after {
+	content: "";
+	position: absolute;
+	top: 0.125em;
+	right: 0;
+	bottom: 0.125em;
+	left: 0;
+	border: 0.125em solid #2d0a63;
+	border-image: -webkit-linear-gradient(
+			rgba(80, 0, 255, 0.31),
+			rgba(40, 0, 127, 0.31)
+		)
+		1;
+	border-image: linear-gradient(rgba(80, 0, 255, 0.31), rgba(40, 0, 127, 0.31)) 1;
+}
+
+.tooltip img {
+	line-height: 0;
+	display: inline-block;
+	margin-top: 1px;
+	margin-right: 6px;
+}
+
+.tooltip span {
+	z-index: 1;
+}
