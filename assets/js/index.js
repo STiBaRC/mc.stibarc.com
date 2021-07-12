@@ -81,7 +81,7 @@ function setPingInfo(time) {
     }
 }
 
-function setInfo(data) {
+function setStatus(data) {
     stopLoadingAnimation();
     setPingInfo(0);
     $("name").title = data.hostname;
@@ -126,9 +126,19 @@ function setInfo(data) {
     $("onlinePlayers").appendChild(playerList);
 }
 
+function setInfo(data) {
+    $("info-host").textContent = data.hostname;
+    $("info-motd").innerHTML = data.motd.html;
+    $("info-ip").textContent = data.ip + ":" + data.port;
+    $("info-version").textContent = data.version;
+}
+
 fetch("https://api.mcsrvstat.us/2/mc.stibarc.com")
     .then((response) => response.json())
-    .then((data) => setInfo(data))
+    .then((data) => {
+        setStatus(data);
+        setInfo(data);
+    })
     .catch((error) => {
         console.log(error);
         stopLoadingAnimation();
