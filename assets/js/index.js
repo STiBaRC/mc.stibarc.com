@@ -6,6 +6,20 @@ function $(id) {
     }
 }
 
+function getAllUrlParams() {
+    var queries = location.search.slice(1).split("&");
+    var obj = {};
+    for (var i in queries) {
+        if (queries[i] != "") {
+            var tmp = queries[i].split("=");
+            obj[decodeURIComponent(tmp[0])] = decodeURIComponent(tmp[1]);
+        }
+    }
+    return obj;
+}
+
+var page = getAllUrlParams().page;
+
 var loading = true;
 var loadingTime;
 
@@ -140,11 +154,32 @@ document.addEventListener("click", function (event) {
 /* pages */
 
 function info() {
+    window.history.pushState('info', 'Info - STiBaRC MC', '?page=info');
+    document.title = "Info - STiBaRC MC";
     $("home").style.display = "none";
     $("info").style.display = "block";
 }
 
 function home() {
+    window.history.pushState('home', 'STiBaRC MC', '?page=home');
+    document.title = "STiBaRC MC";
     $("home").style.display = "flex";
     $("info").style.display = "none";
 }
+
+function updatePage() {
+    if(page == "info") {
+        info();
+    } else {
+        home();
+    }
+}
+
+window.onpopstate = function(e){
+    if(e.state){
+        page = e.state;
+        updatePage();
+    }
+}
+
+updatePage();
