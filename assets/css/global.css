@@ -19,6 +19,12 @@ body {
 	font-size: 16px;
 }
 
+.light-bg {
+	background: #2e2015 url("../images/dirt-light.png") repeat;
+	background-size: 64px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.93);
+}
+
 ::-webkit-scrollbar {
 	/* width */
 	width: 16px;
@@ -41,15 +47,42 @@ body {
 
 /* helpers */
 
+.flex-center {
+	display: flex;
+	align-items: center;
+}
+
 .flex-grow {
 	display: flex;
 	flex-grow: 1;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 1;
 }
 
 /* text helpers */
 
 .text-sh {
 	text-shadow: 2px 2px #3e3e3e;
+}
+
+/* container */
+
+.container {
+	max-width: 720px;
+	margin: 0 auto;
+	padding: 0 1rem;
 }
 
 /* buttons */
@@ -97,6 +130,31 @@ body {
 .button.block {
 	width: 100%;
 	box-sizing: border-box;
+}
+
+.button-group .button:not(:last-child) {
+	margin-right: 14px;
+}
+
+/* nav */
+
+.nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+}
+
+.nav .container {
+	min-height: 60px;
+}
+
+.nav-height {
+	min-height: 60px;
+}
+
+.nav-margin {
+	min-height: 72px;
 }
 
 /* main */

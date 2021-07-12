@@ -16,7 +16,7 @@
 
 <body>
 
-    <div class="main">
+    <div class="main" id="home">
         <div class="content">
 
             <div class="status">
@@ -32,8 +32,9 @@
                 </span>
             </div>
 
-            <div>
-                <a href="#" class="button block"><span>World Map</span></a>
+            <div class="button-group row">
+                <a href="#" class="button column"><span>World Map</span></a>
+                <a class="button column" onclick="info()"><span>Info</span></a>
             </div>
 
             <br>
@@ -45,6 +46,16 @@
             </div>
 
         </div>
+    </div>
+
+    <div class="info" id="info" style="display: none;">
+
+        <div class="nav light-bg">
+            <div class="container flex-center">
+                <a class="button" onclick="home()">Back</a>
+            </div>
+        </div>
+
     </div>
 
     <script src="./assets/js/index.js"></script>
