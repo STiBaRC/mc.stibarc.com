@@ -127,10 +127,47 @@ function setStatus(data) {
 }
 
 function setInfo(data) {
-    $("info-host").textContent = data.hostname;
-    $("info-motd").innerHTML = data.motd.html;
     $("info-ip").textContent = data.ip + ":" + data.port;
     $("info-version").textContent = data.version;
+
+    $("status").innerHTML = "";
+    var status = document.createElement("div");
+    status.setAttribute("class", "status");
+    var serverIcon = document.createElement("img");
+    serverIcon.setAttribute("class", "server-icon");
+    serverIcon.src = data.icon;
+    status.appendChild(serverIcon);
+    var statusContent = document.createElement("span");
+    statusContent.setAttribute("class", "status-content");
+    var top = document.createElement("div");
+    top.setAttribute("class", "top");
+    var name = document.createElement("span");
+    name.setAttribute("class", "name");
+    name.appendChild(document.createTextNode(data.hostname));
+    top.appendChild(name);
+    var flexGrow = document.createElement("span");
+    flexGrow.setAttribute("class", "flex-grow");
+    top.appendChild(flexGrow);
+    top.appendChild(document.createTextNode("&nbsp;"));
+    var playerCount = document.createElement("span");
+    var online = document.createElement("span");
+    online.setAttribute("class", "online");
+    online.appendChild(document.createTextNode(data.players.online));
+    playerCount.appendChild(online);
+    var spacer = document.createElement("span");
+    spacer.appendChild(document.createTextNode("/"));
+    playerCount.appendChild(spacer);
+    var max = document.createElement("span");
+    max.setAttribute("class", "max");
+    max.appendChild(document.createTextNode(data.players.max));
+    playerCount.appendChild(max);
+    top.appendChild(playerCount);
+    var ping = document.createElement("span");
+    ping.setAttribute("class", "ping");
+    top.appendChild(ping);
+    statusContent.appendChild(top);
+    status.appendChild(statusContent);
+    $("status").appendChild(status);
 }
 
 fetch("https://api.mcsrvstat.us/2/mc.stibarc.com")
