@@ -87,6 +87,10 @@ p, .txt-light {
 	color: #808080;
 }
 
+ul {
+	list-style-type: square;
+}
+
 .text-sh {
 	text-shadow: 2px 2px #3e3e3e;
 }
