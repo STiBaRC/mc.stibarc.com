@@ -99,6 +99,32 @@ p, .txt-light {
 	padding: 0 1rem;
 }
 
+/* margins */
+
+.mt-xsmall {
+	margin-top: .25rem;
+}
+
+.mt-small {
+	margin-top: .5rem;
+}
+
+.mt-large {
+	margin-top: 1rem;
+}
+
+.mb-xsmall {
+	margin-bottom: .25rem;
+}
+
+.mb-small {
+	margin-bottom: .5rem;
+}
+
+.mb-large {
+	margin-bottom: 1rem;
+}
+
 /* buttons */
 
 .button {
