@@ -84,7 +84,7 @@ function setPingInfo(time) {
 function setStatus(data) {
     stopLoadingAnimation();
     setPingInfo(0);
-    $("name").title = data.hostname;
+    $("name").title = data.ip + ":" + data.port;
     $("motd").innerHTML = data.motd.html;
     $("playerCount").innerHTML = "";
     var playerCount = document.createElement("span");
