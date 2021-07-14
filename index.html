@@ -16,30 +16,41 @@
 
 <body>
 
-    <div class="main" id="home">
+    <div class="home" id="home">
+
+        <div class="nav light-bg">
+            <div class="container flex-all-center">
+                <div class="text-sh">STiBaRC Minecraft Server</div>
+            </div>
+        </div>
+
+        <div class="nav-height"></div>
 
         <div class="container">
 
-            <div class="status">
-                <img class="server-icon" id="serverIcon" src="./assets/images/icon.png">
-                <span class="status-content">
-                    <div class="top">
-                        <span class="name" id="name">mc.stibarc.com</span>
-                        <span class="flex-grow"></span>
-                        &nbsp;
-                        <span class="player-count" id="playerCount"></span><span class="ping" id="ping"></span>
-                    </div>
-                    <div class="motd" id="motd"></div>
-                </span>
-            </div>
+            <div style="margin-top: 1rem;">
+                <div class="status">
+                    <img class="server-icon" id="serverIcon" src="./assets/images/icon.png">
+                    <span class="status-content">
+                        <div class="top">
+                            <span class="name" id="name">mc.stibarc.com</span>
+                            <span class="flex-grow"></span>
+                            &nbsp;
+                            <span class="player-count" id="playerCount"></span><span class="ping" id="ping"></span>
+                        </div>
+                        <div class="motd" id="motd"></div>
+                    </span>
+                </div>
 
-            <div class="button-group row">
-                <a href="https://mcmap.stibarc.com" target="_blank"
-                    class="button column"><span>World&nbsp;Map</span></a>
-                <a class="button column" onclick="info()"><span>Info</span></a>
-            </div>
+                <div class="button-group row">
+                    <a href="https://mcmap.stibarc.com" target="_blank"
+                        class="button column"><span>World&nbsp;Map</span></a>
+                    <a class="button column" onclick="rules()"><span>Rules</span></a>
+                </div>
 
-            <br>
+                <p>Actual IP:&nbsp;<span id="info-ip"></span></p>
+                <p>Version:&nbsp;<span id="info-version"></span></p>
+            </div>
 
             <div class="title text-sh">Online Players:</div>
 
@@ -51,7 +62,7 @@
 
     </div>
 
-    <div class="info" id="info" style="display: none;">
+    <div class="rules" id="rules" style="display: none;">
 
         <div class="nav light-bg">
             <div class="container flex-center">
@@ -63,23 +74,7 @@
 
         <div class="container">
 
-            <div style="margin-top: 1rem;">
-                <div class="status">
-                    <img class="server-icon" id="info-serverIcon" src="./assets/images/icon.png">
-                    <span class="status-content">
-                        <div class="top">
-                            <span class="name" id="info-name">mc.stibarc.com</span>
-                            <span class="flex-grow"></span>
-                            &nbsp;
-                            <span class="player-count" id="info-playerCount"></span><span class="ping"
-                                id="info-ping"></span>
-                        </div>
-                        <div class="motd" id="info-motd"></div>
-                    </span>
-                </div>
-                <p>Actual IP:&nbsp;<span id="info-ip"></span></p>
-                <p>Version:&nbsp;<span id="info-version"></span></p>
-            </div>
+            <p></p>
 
         </div>
 

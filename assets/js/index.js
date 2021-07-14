@@ -85,7 +85,7 @@ function setStatus(data) {
     stopLoadingAnimation();
     setPingInfo(0);
     $("name").title = data.hostname;
-    // $("motd").innerHTML = data.motd.html;
+    $("motd").innerHTML = data.motd.html;
     $("playerCount").innerHTML = "";
     var playerCount = document.createElement("span");
     var online = document.createElement("span");
@@ -161,23 +161,23 @@ document.addEventListener("click", function (event) {
 
 /* pages */
 
-function info() {
-    window.history.pushState('info', 'Info - STiBaRC MC', '?page=info');
-    document.title = "Info - STiBaRC MC";
+function rules() {
+    window.history.pushState('rules', 'Rules - STiBaRC MC', '?page=rules');
+    document.title = "Rules - STiBaRC MC";
     $("home").style.display = "none";
-    $("info").style.display = "block";
+    $("rules").style.display = "block";
 }
 
 function home() {
     window.history.pushState('home', 'STiBaRC MC', '?page=home');
     document.title = "STiBaRC MC";
     $("home").style.display = "block";
-    $("info").style.display = "none";
+    $("rules").style.display = "none";
 }
 
 function updatePage() {
-    if(page == "info") {
-        info();
+    if(page == "rules") {
+        rules();
     } else {
         home();
     }
