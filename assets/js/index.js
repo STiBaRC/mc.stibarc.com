@@ -159,6 +159,14 @@ document.addEventListener("click", function (event) {
     }
 });
 
+function toggleMoreInfo() {
+    if ($("moreInfo").style.display == "none") {
+        $("moreInfo").style.display = "block";
+    } else {
+        $("moreInfo").style.display = "none";
+    }
+}
+
 /* pages */
 
 function rules() {
@@ -176,15 +184,15 @@ function home() {
 }
 
 function updatePage() {
-    if(page == "rules") {
+    if (page == "rules") {
         rules();
     } else {
         home();
     }
 }
 
-window.onpopstate = function(e){
-    if(e.state){
+window.onpopstate = function (e) {
+    if (e.state) {
         page = e.state;
         updatePage();
     }

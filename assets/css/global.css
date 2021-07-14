@@ -91,6 +91,12 @@ p, .txt-light {
 	text-shadow: 2px 2px #3e3e3e;
 }
 
+.no-select {
+	-webkit-user-select: none;
+   	-ms-user-select: none;
+   	user-select: none;
+}
+
 /* container */
 
 .container {
