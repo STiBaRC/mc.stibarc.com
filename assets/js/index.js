@@ -129,6 +129,8 @@ function setStatus(data) {
 function setInfo(data) {
     $("info-ip").textContent = data.ip + ":" + data.port;
     $("info-version").textContent = data.version;
+    $("info-software").textContent = data.software;
+    $("info-map").textContent = data.map;
 }
 
 fetch("https://api.mcsrvstat.us/2/mc.stibarc.com")
