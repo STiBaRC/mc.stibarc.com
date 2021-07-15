@@ -1,3 +1,5 @@
+var serverHost = "mc.stibarc.com";
+
 function $(id) {
     if (id.startsWith(".")) {
         return document.getElementsByClassName(id.substring(1));
@@ -84,6 +86,7 @@ function setPingInfo(time) {
 function setStatus(data) {
     stopLoadingAnimation();
     setPingInfo(0);
+    $("name").textContent = serverHost;
     $("name").title = data.ip + ":" + data.port;
     $("motd").innerHTML = data.motd.html;
     $("playerCount").innerHTML = "";
@@ -133,7 +136,7 @@ function setInfo(data) {
     $("info-map").textContent = data.map;
 }
 
-fetch("https://api.mcsrvstat.us/2/mc.stibarc.com")
+fetch("https://api.mcsrvstat.us/2/" + serverHost)
     .then((response) => response.json())
     .then((data) => {
         setStatus(data);
