@@ -1,4 +1,5 @@
 var serverHost = "mc.stibarc.com";
+var apiUrl = "/api/data.sjs";
 
 function $(id) {
     if (id.startsWith(".")) {
@@ -84,31 +85,33 @@ function setPingInfo(time) {
 }
 
 function setStatus(data) {
+    var status = data["status"];
+    var query = data["query"];
     stopLoadingAnimation();
     setPingInfo(0);
-    $("name").textContent = serverHost;
-    $("name").title = data.ip + ":" + data.port;
-    $("motd").innerHTML = data.motd.html;
+    $("name").textContent = status.host;
+    $("name").title = status.host + ":" + status.port;
+    $("motd").textContent = status.description.descriptionText;
     $("playerCount").innerHTML = "";
     var playerCount = document.createElement("span");
     var online = document.createElement("span");
     online.setAttribute("class", "online");
-    online.appendChild(document.createTextNode(data.players.online));
+    online.appendChild(document.createTextNode(status.onlinePlayers));
     playerCount.appendChild(online);
     var spacer = document.createElement("span");
     spacer.appendChild(document.createTextNode("/"));
     playerCount.appendChild(spacer);
     var max = document.createElement("span");
     max.setAttribute("class", "max");
-    max.appendChild(document.createTextNode(data.players.max));
+    max.appendChild(document.createTextNode(status.maxPlayers));
     playerCount.appendChild(max);
     $("playerCount").appendChild(playerCount);
-    $("serverIcon").src = data.icon;
+    $("serverIcon").src = status.favicon;
     /* Online players */
-    var playersOnline = data.players.list;
+    var playersOnline = query.players;
     $("onlinePlayers").innerHTML = "";
     var playerList = document.createElement("span");
-    if (data.players.online == 0) {
+    if (status.onlinePlayers == 0) {
         var noPlayers = document.createElement("span");
         noPlayers.appendChild(document.createTextNode("None"));
         playerList.appendChild(noPlayers);
@@ -130,13 +133,11 @@ function setStatus(data) {
 }
 
 function setInfo(data) {
-    $("info-ip").textContent = data.ip + ":" + data.port;
-    $("info-version").textContent = data.version;
-    $("info-software").textContent = data.software;
-    $("info-map").textContent = data.map;
+    $("info-ip").textContent = data.status.host + ":" + data.status.port;
+    $("info-version").textContent = data.status.version;
 }
 
-fetch("https://api.mcsrvstat.us/2/" + serverHost)
+fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
         setStatus(data);
