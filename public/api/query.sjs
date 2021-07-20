@@ -1,4 +1,4 @@
-const util = require('minecraft-server-util');
+const util = require('../../node_modules/minecraft-server-util');
 
 util.queryFull('mc.stibarc.com', { port: 25561 })
     .then((response) => {
