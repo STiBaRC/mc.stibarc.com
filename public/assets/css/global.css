@@ -101,6 +101,10 @@ ul {
    	user-select: none;
 }
 
+.txt-red {
+	color: #AA0000;
+}
+
 /* container */
 
 .container {
