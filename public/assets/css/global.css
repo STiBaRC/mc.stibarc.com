@@ -315,6 +315,8 @@ ul {
 }
 
 .tooltip img {
+	width: 16px;
+	height: 16px;
 	line-height: 0;
 	display: inline-block;
 	margin-top: 1px;

@@ -149,7 +149,7 @@ fetch(apiUrl)
         setPingInfo(error);
         $("ping").title = error;
         $("motd").innerHTML = "<span class=\"txt-red\">Can\'t connect to server</span>";
-        $("onlinePlayers").textContent ="Unknown";
+        $("onlinePlayers").textContent = "Unknown";
     });
 
 var click_stereo = new Audio();
