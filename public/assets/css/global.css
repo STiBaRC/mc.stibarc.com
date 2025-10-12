@@ -2,10 +2,10 @@
 	font-family: "Minecraft";
 	font-style: normal;
 	font-weight: 400;
-	src: url("https://apis.buncode.com/fonts/minecraft_font.eot") format("eot"),
-		url("https://apis.buncode.com/fonts/minecraft_font.woff") format("woff"),
-		url("https://apis.buncode.com/fonts/minecraft_font.ttf") format("truetype"),
-		url("https://apis.buncode.com/fonts/minecraft_font.svg#Minecraft")
+	src: url("../fonts/minecraft_font.eot") format("eot"),
+		url("../fonts/minecraft_font.woff") format("woff"),
+		url("../fonts/minecraft_font.ttf") format("truetype"),
+		url("../fonts/minecraft_font.svg#Minecraft")
 			format("svg");
 }
 
