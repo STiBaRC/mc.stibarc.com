@@ -4,11 +4,11 @@ const util = require("minecraft-server-util");
 var res = {};
 
 util
-  .status("mc.stibarc.com", 25561)
+  .status("mc.stibarc.com", 25565)
   .then((response) => {
     res.status = response;
     util
-      .queryFull("mc.stibarc.com", 25561)
+      .queryFull("mc.stibarc.com", 25565)
       .then((response) => {
         res.query = response;
         sjs.writeStatusLine(200);

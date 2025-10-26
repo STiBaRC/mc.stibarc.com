@@ -2,7 +2,7 @@ const sjs = require("sprucehttp_sjs");
 const util = require("minecraft-server-util");
 
 util
-  .status("mc.stibarc.com", 25561)
+  .status("mc.stibarc.com", 25565)
   .then((response) => {
     sjs.writeStatusLine(200);
     sjs.writeHeader("Content-Type", "application/json");
