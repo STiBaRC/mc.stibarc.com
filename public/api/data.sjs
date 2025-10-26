@@ -12,20 +12,20 @@ util
       .then((response) => {
         res.query = response;
         sjs.writeStatusLine(200);
-		sjs.writeHeader("Content-Type", "application/json");
-		sjs.writeData(JSON.stringify(res));
-		process.exit();
+        sjs.writeHeader("Content-Type", "application/json");
+        sjs.writeData(JSON.stringify(res));
+        process.exit();
       })
       .catch((error) => {
         sjs.writeStatusLine(500);
-		sjs.writeHeader("Content-Type", "application/json");
-		sjs.writeData(JSON.stringify(error));
-		process.exit();
+        sjs.writeHeader("Content-Type", "application/json");
+        sjs.writeData(JSON.stringify(error));
+        process.exit();
       });
   })
   .catch((error) => {
     sjs.writeStatusLine(500);
-	sjs.writeHeader("Content-Type", "application/json");
-	sjs.writeData(JSON.stringify(error));
-	process.exit();
+    sjs.writeHeader("Content-Type", "application/json");
+    sjs.writeData(JSON.stringify(error));
+    process.exit();
   });
