@@ -1,9 +1,17 @@
-const util = require('../../node_modules/minecraft-server-util');
+const sjs = require("sprucehttp_sjs");
+const util = require("minecraft-server-util");
 
-util.status('mc.stibarc.com', { port: 25561 })
-    .then((response) => {
-        console.log(JSON.stringify(response));
-    })
-    .catch((error) => {
-        console.error(JSON.stringify(error));
-    });
+util
+  .status("mc.stibarc.com", { port: 25561 })
+  .then((response) => {
+    sjs.writeStatusLine(200);
+    sjs.writeHeader("Content-Type", "application/json");
+    sjs.writeData(JSON.stringify(response));
+    process.exit();
+  })
+  .catch((error) => {
+    sjs.writeStatusLine(500);
+    sjs.writeHeader("Content-Type", "application/json");
+    sjs.writeData(JSON.stringify(error));
+    process.exit();
+  });

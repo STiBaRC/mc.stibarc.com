@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "minecraft-server-util": "^3.5.2"
+    "minecraft-server-util": "^5.4.4",
+    "sprucehttp_sjs": "^1.0.11"
   }
 }
