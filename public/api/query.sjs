@@ -2,7 +2,7 @@ const sjs = require("sprucehttp_sjs");
 const util = require("minecraft-server-util");
 
 util
-  .queryFull("mc.stibarc.com", { port: 25561 })
+  .queryFull("mc.stibarc.com", 25561)
   .then((response) => {
     sjs.writeStatusLine(200);
     sjs.writeHeader("Content-Type", "application/json");
