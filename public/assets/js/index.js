@@ -1,3 +1,35 @@
+// fetch("/makePing.php?ip=mc.sopaws.com")
+//     .then((response) => {
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+
+//         return response.json();
+//     })
+//     .then((response) => {
+//         console.log(response);
+//         const pingElem = document.querySelector("#ping");
+//         const playerCountElem = document.querySelector("#playercount");
+//         if (response.online) {
+//             pingElem.className = "ping lowest";
+//             pingElem.title = `${response.ping} ms`;
+//             playerCountElem.innerHTML = `<span style="color:#AAAAAA;">${response.players}</span><span style="color:#555555;">/</span><span style="color:#AAAAAA;">${response.max_players}</span>`;
+//             let players = "";
+//             for (i in response.sample_player_list) {
+//                 if (i > 0) {
+//                     players += "\n";
+//                 }
+//                 players += response.sample_player_list[i].name;
+//             }
+//             playerCountElem.title = `${players}`;
+//         } else {
+//             pingElem.className = "ping unknown";
+//             pingElem.title = "(no connection)";
+//         }
+//     });
+
+
+
 var serverHost = "mc.stibarc.com";
 var apiUrl = "./api/data.sjs";
 
@@ -69,19 +101,19 @@ function loadingAnimation() {
 loadingAnimation();
 
 function setPingInfo(time) {
-    if (time < 150) {
-        $("ping").style.backgroundPosition = "0 -2px";
-    } else if (time < 300) {
-        $("ping").style.backgroundPosition = "0 -10px";
-    } else if (time < 600) {
-        $("ping").style.backgroundPosition = "0 -18px";
-    } else if (time < 1000) {
-        $("ping").style.backgroundPosition = "0 -26px";
-    } else if (time >= 1000) {
-        $("ping").style.backgroundPosition = "0 -34px";
-    } else {
-        $("ping").style.backgroundPosition = "0 -42px";
-    }
+    // if (time < 150) {
+    //     $("ping").style.backgroundPosition = "0 -2px";
+    // } else if (time < 300) {
+    //     $("ping").style.backgroundPosition = "0 -10px";
+    // } else if (time < 600) {
+    //     $("ping").style.backgroundPosition = "0 -18px";
+    // } else if (time < 1000) {
+    //     $("ping").style.backgroundPosition = "0 -26px";
+    // } else if (time >= 1000) {
+    //     $("ping").style.backgroundPosition = "0 -34px";
+    // } else {
+    //     $("ping").style.backgroundPosition = "0 -42px";
+    // }
 }
 
 function setStatus(data) {

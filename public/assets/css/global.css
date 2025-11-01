@@ -5,24 +5,11 @@
 	src: url("../fonts/minecraft_font.eot") format("eot"),
 		url("../fonts/minecraft_font.woff") format("woff"),
 		url("../fonts/minecraft_font.ttf") format("truetype"),
-		url("../fonts/minecraft_font.svg#Minecraft")
-			format("svg");
+		url("../fonts/minecraft_font.svg#Minecraft") format("svg");
 }
 
-body {
-	background: #18100a url(../images/dirt.png) repeat;
-	background-size: 64px;
-	image-rendering: pixelated;
-	color: #fcfcfc;
-	font-family: Minecraft, sans-serif;
-	margin: 0;
-	font-size: 16px;
-}
-
-.light-bg {
-	background: #2e2015 url("../images/dirt-light.png") repeat;
-	background-size: 64px;
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.93);
+* {
+	box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
@@ -30,19 +17,32 @@ body {
 	width: 16px;
 	height: 16px;
 }
+
 ::-webkit-scrollbar-track {
 	/* Track */
 	background: #000;
 }
+
 ::-webkit-scrollbar-thumb {
 	/* Handle */
 	background: #c0c0c0;
 	border-bottom: 2px inset #808080;
 	border-right: 3px inset #808080;
 }
+
 ::-webkit-scrollbar-thumb:hover {
 	/* Handle on hover */
 	background: #c0c0c0;
+}
+
+body {
+	/* image-rendering: pixelated;
+	color: #fcfcfc;
+	font-family: Minecraft, sans-serif; */
+	margin: 0;
+	font-size: 16px;
+	font-family: "Martian Mono", monospace;
+	overflow: hidden;
 }
 
 /* helpers */
@@ -83,7 +83,8 @@ body {
 	text-align: center;
 }
 
-p, .txt-light {
+p,
+.txt-light {
 	color: #808080;
 }
 
@@ -97,8 +98,8 @@ ul {
 
 .no-select {
 	-webkit-user-select: none;
-   	-ms-user-select: none;
-   	user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .txt-red {
@@ -163,7 +164,7 @@ ul {
 	outline-offset: 0;
 }
 
-.button > span {
+.button>span {
 	text-decoration: none;
 	cursor: default;
 }
@@ -188,27 +189,6 @@ ul {
 
 .button-group .button:not(:last-child) {
 	margin-right: 14px;
-}
-
-/* nav */
-
-.nav {
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 100;
-}
-
-.nav .container {
-	min-height: 60px;
-}
-
-.nav-height {
-	min-height: 60px;
-}
-
-.nav-margin {
-	min-height: 72px;
 }
 
 /* main */
@@ -262,7 +242,7 @@ ul {
 	color: #7e7e7e;
 }
 
-.ping {
+/* .ping {
 	background: url(../images/levels.png) 10px -2px;
 	height: 8px;
 	width: 10px;
@@ -271,7 +251,7 @@ ul {
 	transform: scale(2, 2);
 	image-rendering: pixelated;
 	margin: 1px 7px -1px 10px;
-}
+} */
 
 .tooltip {
 	position: relative;
@@ -306,11 +286,8 @@ ul {
 	bottom: 0.125em;
 	left: 0;
 	border: 0.125em solid #2d0a63;
-	border-image: -webkit-linear-gradient(
-			rgba(80, 0, 255, 0.31),
-			rgba(40, 0, 127, 0.31)
-		)
-		1;
+	border-image: -webkit-linear-gradient(rgba(80, 0, 255, 0.31),
+			rgba(40, 0, 127, 0.31)) 1;
 	border-image: linear-gradient(rgba(80, 0, 255, 0.31), rgba(40, 0, 127, 0.31)) 1;
 }
 
@@ -325,4 +302,303 @@ ul {
 
 .tooltip span {
 	z-index: 1;
+}
+
+/* other */
+
+.flex-grow {
+	flex-grow: 1;
+}
+
+img:not(.fading-slideshow img) {
+	max-width: 100%;
+}
+
+a {
+	color: inherit;
+}
+
+.fullPage {
+	position: absolute;
+	z-index: 0;
+	top: 4rem;
+	width: 100%;
+	bottom: 0;
+	overflow-y: scroll;
+}
+
+.dirtBg-dark {
+	background: #18100a url(../img/dirt.png) repeat;
+	background-size: 64px;
+	image-rendering: pixelated;
+	color: #fcfcfc;
+}
+
+.dirtBg-light {
+	background: #2e2015 url(../img/dirt-light.png) repeat;
+	background-size: 64px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.93);
+	image-rendering: pixelated;
+	color: #fcfcfc;
+}
+
+.navbar {
+	position: fixed;
+	overflow-x: hidden;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+	min-height: 64px;
+	padding: 0 1rem;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	font-family: "Minecraft", inherit, sans-serif;
+}
+
+.navbar .content {
+	display: flex;
+	align-items: center;
+	max-width: 1080px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.navbar .logo {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+}
+
+.navbar .logo img {
+	display: inline-block;
+	margin-right: 12px;
+	border-radius: 5px;
+	image-rendering: pixelated;
+}
+
+.navbar .content .title {
+	font-size: 21px;
+	color: inherit;
+}
+
+.container {
+	max-width: 1080px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+.hero {
+	position: relative;
+	min-height: 28vh;
+	z-index: -1;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	background-color: #21c151;
+}
+
+.heroBg {
+	background: #21c151 url(../img/screenshots/img01.webp) center center;
+	background-size: fill;
+	color: #fff;
+}
+
+.overlay::before,
+.heroBg::before {
+	content: "";
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.35);
+	z-index: 21;
+}
+
+.content {
+	display: flex;
+	align-items: center;
+}
+
+.hero .content {
+	z-index: 22;
+	width: 100%;
+	max-width: 1080px;
+	margin: 0 auto;
+	height: 100%;
+	padding: 1.5rem;
+}
+
+.hero h1,
+.hero h2,
+.hero h3 {
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-shadow: 2px 2px 8px rgba(22, 22, 22, 0.25);
+}
+
+/* image grid */
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+.column {
+	flex: 50%;
+}
+
+.column img {
+	width: 100%;
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+/* image slideshow */
+@keyframes fader {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
+}
+
+.fading-slideshow {
+	position: relative;
+	margin: auto;
+	padding: 0;
+	list-style-type: none;
+}
+
+.fading-slideshow>li {
+	position: absolute;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+	background: #25c555;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100%;
+	min-width: 100%;
+}
+
+.fading-slideshow>img {
+	background: #25c555;
+	max-width: 200vw;
+	height: auto;
+	min-height: 100%;
+	min-width: 100vw;
+	object-fit: fill;
+	object-position: center center;
+}
+
+@media screen and (min-width: 1000px) {
+	.fading-slideshow img {
+		width: 100%;
+	}
+}
+
+/* current slide */
+
+.fading-slideshow>li:first-of-type {
+	animation-name: fader;
+	animation-delay: 2.5s;
+	animation-duration: 1s;
+	z-index: 20;
+}
+
+/* next slide to display */
+
+.fading-slideshow>li:nth-of-type(2) {
+	z-index: 10;
+}
+
+/* all other slides */
+
+.fading-slideshow>li:nth-of-type(n + 3) {
+	display: none;
+}
+
+/* worldCard */
+.worldCard {
+	display: flex;
+	align-items: top;
+	margin: 0.5rem auto 1rem auto;
+	cursor: pointer;
+}
+
+.worldImg {
+	display: inline-block;
+	max-width: 100%;
+	width: 175px;
+	height: 100px;
+	object-fit: cover;
+	object-position: center center;
+	image-rendering: high-quality;
+	border-radius: 5px;
+}
+
+.worldCard .content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-left: 1rem;
+}
+
+.worldCard .title {
+	font-weight: 500;
+	font-size: 20px;
+}
+
+#playercount {
+	font-family: "Minecraft";
+}
+
+.ping {
+	--ping_1: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAOklEQVR4XmNgoBaIjo7+jy6GAmAKQLSFhQWmYnQFGApxKUAo/K+IVwGqwnZ+DAl0GmIvUCGIgglgowEkkkpHNz9Q0AAAAABJRU5ErkJggg==");
+	--ping_2: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAPklEQVR4XmNgoBaIjo7+jy6GAmAKQLSFhQWmYnQFmAr/K2JVgFAIVQCm2/kxFKAqBCogrBAEQAqRaJgEMg0AKYdKPu63g00AAAAASUVORK5CYII=");
+	--ping_3: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAPklEQVR4XmNgoBaIjo7+jy6GAmAKQLSFhQUWxf8VURRgKoQqANPt/HAFCIVoCvArRFKAWyEIgBRgoWEKQDQAL41KMieTviQAAAAASUVORK5CYII=");
+	--ping_4: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAPElEQVR4XmNgoBaIjo7+jy6GCv4rghWAFFpYWGBRDFUAptv5/2MqRFOAqRCHAuwKsSjAVAgCIAk8NEghADZZSiM1taX0AAAAAElFTkSuQmCC");
+	--ping_5: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAMElEQVR4XmNgoBr4r/gfXQgVwBSA6HZ+LIrRFWAoxKUArpCQAhSF2CTQaTCAMfDQAD2gShF6V16gAAAAAElFTkSuQmCC");
+	--ping_unknown: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAVklEQVR4XmNgIAX8B6ImMEWEOLogjC8mJvZfWloau2IYzcvL+19XV/e/hYUFQmF0dDSYg24SSBysEKYApBPdRJACFIUgBrpJMD5cIbJ1IDeB+DAJZJMB+BhUF7gDDUgAAAAASUVORK5CYII=");
+}
+
+.ping {
+	background: var(--ping_1);
+	height: 8px;
+	width: 10px;
+	display: inline-block;
+	-ms-transform: scale(2.5, 2.5);
+	-webkit-transform: scale(2.5, 2.5);
+	transform: scale(2.5, 2.5);
+	image-rendering: pixelated;
+	margin: 0 0 2px 14px;
+}
+
+.ping.highest {
+	background: var(--ping_1);
+}
+
+.ping.high {
+	background: var(--ping_2);
+}
+
+.ping.medium {
+	background: var(--ping_3);
+}
+
+.ping.low {
+	background: var(--ping_4);
+}
+
+.ping.lowest {
+	background: var(--ping_5);
+}
+
+.ping.unknown {
+	background: var(--ping_unknown);
 }
