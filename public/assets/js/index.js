@@ -69,33 +69,33 @@ function startLoadingAnimation() {
 }
 
 function loadingAnimation() {
-    loadingTime = setTimeout(() => {
-        $("ping").style.backgroundPosition = "10px -2px";
-        loadingTime = setTimeout(() => {
-            $("ping").style.backgroundPosition = "10px -10px";
-            loadingTime = setTimeout(() => {
-                $("ping").style.backgroundPosition = "10px -18px";
-                loadingTime = setTimeout(() => {
-                    $("ping").style.backgroundPosition = "10px -26px";
-                    loadingTime = setTimeout(() => {
-                        $("ping").style.backgroundPosition = "10px -34px";
-                        loadingTime = setTimeout(() => {
-                            $("ping").style.backgroundPosition = "10px -26px";
-                            loadingTime = setTimeout(() => {
-                                $("ping").style.backgroundPosition = "10px -18px";
-                                loadingTime = setTimeout(() => {
-                                    $("ping").style.backgroundPosition = "10px -10px";
-                                    if (loading) {
-                                        loadingAnimation();
-                                    }
-                                }, 85);
-                            }, 85);
-                        }, 85);
-                    }, 85);
-                }, 85);
-            }, 85);
-        }, 85);
-    }, 85);
+    // loadingTime = setTimeout(() => {
+    //     $("ping").style.backgroundPosition = "10px -2px";
+    //     loadingTime = setTimeout(() => {
+    //         $("ping").style.backgroundPosition = "10px -10px";
+    //         loadingTime = setTimeout(() => {
+    //             $("ping").style.backgroundPosition = "10px -18px";
+    //             loadingTime = setTimeout(() => {
+    //                 $("ping").style.backgroundPosition = "10px -26px";
+    //                 loadingTime = setTimeout(() => {
+    //                     $("ping").style.backgroundPosition = "10px -34px";
+    //                     loadingTime = setTimeout(() => {
+    //                         $("ping").style.backgroundPosition = "10px -26px";
+    //                         loadingTime = setTimeout(() => {
+    //                             $("ping").style.backgroundPosition = "10px -18px";
+    //                             loadingTime = setTimeout(() => {
+    //                                 $("ping").style.backgroundPosition = "10px -10px";
+    //                                 if (loading) {
+    //                                     loadingAnimation();
+    //                                 }
+    //                             }, 85);
+    //                         }, 85);
+    //                     }, 85);
+    //                 }, 85);
+    //             }, 85);
+    //         }, 85);
+    //     }, 85);
+    // }, 85);
 }
 
 loadingAnimation();
