@@ -374,7 +374,6 @@ a {
 	display: inline-block;
 	margin-right: 12px;
 	border-radius: 5px;
-	image-rendering: pixelated;
 }
 
 .navbar .content .title {
