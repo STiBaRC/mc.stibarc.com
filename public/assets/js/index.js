@@ -1,5 +1,4 @@
-var serverHost = "mc.stibarc.com";
-var apiUrl = "./api/status.sjs";
+var apiUrl = "https://mc.stibarc.com/api/status.sjs";
 
 function $(id) {
     if (id.startsWith(".")) {
@@ -86,38 +85,39 @@ function setPingInfo(time) {
 
 function setStatus(data) {
     var status = data["status"] || data;
-    var query = data["query"];
+    // var query = data["query"];
     stopLoadingAnimation();
     setPingInfo(0);
-    $("name").textContent = status.host;
-    $("name").title = status.host + ":" + status.port;
-    $("motd").textContent = status.description.descriptionText;
+    $("name").textContent = status.host || status.srvRecord.host;
+    $("name").title = status.srvRecord.host + ":" + status.srvRecord.port;
+    $("motd").innerHTML = status.motd.html;
     $("playerCount").innerHTML = "";
     var playerCount = document.createElement("span");
     var online = document.createElement("span");
     online.setAttribute("class", "online");
-    online.appendChild(document.createTextNode(status.onlinePlayers));
+    online.appendChild(document.createTextNode(status.players.online));
     playerCount.appendChild(online);
     var spacer = document.createElement("span");
     spacer.appendChild(document.createTextNode("/"));
     playerCount.appendChild(spacer);
     var max = document.createElement("span");
     max.setAttribute("class", "max");
-    max.appendChild(document.createTextNode(status.maxPlayers));
+    max.appendChild(document.createTextNode(status.players.max));
     playerCount.appendChild(max);
     $("playerCount").appendChild(playerCount);
     $("serverIcon").src = status.favicon;
     /* Online players */
-    var playersOnline = query.players;
+    var playersOnline = status.players.sample;
+    console.log(playersOnline);
     $("onlinePlayers").innerHTML = "";
     var playerList = document.createElement("span");
-    if (status.onlinePlayers == 0) {
+    if (playersOnline.length == 0) {
         var noPlayers = document.createElement("span");
         noPlayers.appendChild(document.createTextNode("None"));
         playerList.appendChild(noPlayers);
     } else {
         for (var i = 0; i < playersOnline.length; i++) {
-            var username = playersOnline[i];
+            var username = playersOnline[i].name;
             var tooltip = document.createElement("span");
             tooltip.setAttribute("class", "tooltip");
             var playerPfp = document.createElement("img");
@@ -133,8 +133,8 @@ function setStatus(data) {
 }
 
 function setInfo(data) {
-    $("info-ip").textContent = data.status.host + ":" + data.status.port;
-    $("info-version").textContent = data.status.version;
+    $("info-ip").textContent = data.srvRecord.host + ":" + data.srvRecord.port;
+    $("info-version").textContent = data.version.name;
 }
 
 fetch(apiUrl)
