@@ -85,7 +85,7 @@ function setPingInfo(time) {
 }
 
 function setStatus(data) {
-    var status = data["status"];
+    var status = data["status"] || data;
     var query = data["query"];
     stopLoadingAnimation();
     setPingInfo(0);
