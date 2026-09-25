@@ -1,5 +1,5 @@
 var serverHost = "mc.stibarc.com";
-var apiUrl = "./api/data.sjs";
+var apiUrl = "./api/status.sjs";
 
 function $(id) {
     if (id.startsWith(".")) {
