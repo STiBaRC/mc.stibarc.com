@@ -20,6 +20,7 @@ util
         sjs.writeStatusLine(500);
         sjs.writeHeader("Content-Type", "application/json");
         sjs.writeData(JSON.stringify(error));
+        console.error(error);
         process.exit();
       });
   })
@@ -27,5 +28,6 @@ util
     sjs.writeStatusLine(500);
     sjs.writeHeader("Content-Type", "application/json");
     sjs.writeData(JSON.stringify(error));
+    console.error(error);
     process.exit();
   });
