@@ -87,7 +87,7 @@ function setStatus(data) {
     var status = data["status"] || data;
     // var query = data["query"];
     stopLoadingAnimation();
-    setPingInfo(0);
+    setPingInfo(status.roundTripLatency);
     $("name").textContent = status.host || status.srvRecord.host;
     $("name").title = status.srvRecord.host + ":" + status.srvRecord.port;
     $("motd").innerHTML = status.motd.html;
