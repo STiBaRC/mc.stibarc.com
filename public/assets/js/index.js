@@ -108,7 +108,6 @@ function setStatus(data) {
     $("serverIcon").src = status.favicon;
     /* Online players */
     var playersOnline = status.players.sample;
-    console.log(playersOnline);
     $("onlinePlayers").innerHTML = "";
     var playerList = document.createElement("span");
     if (playersOnline.length == 0) {
