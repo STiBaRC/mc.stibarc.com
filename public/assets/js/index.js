@@ -110,7 +110,7 @@ function setStatus(data) {
     var playersOnline = status.players.sample;
     $("onlinePlayers").innerHTML = "";
     var playerList = document.createElement("span");
-    if (playersOnline.length == 0) {
+    if (status.players.online == 0) {
         var noPlayers = document.createElement("span");
         noPlayers.appendChild(document.createTextNode("None"));
         playerList.appendChild(noPlayers);
